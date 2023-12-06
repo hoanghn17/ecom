@@ -169,7 +169,7 @@ const SideBar = () => {
                   <div className="sb-nav-link-icon">
                     <i className="fab fa-adversal"></i>
                   </div>
-                  Quản lý băng rôn
+                  Quản lý Banner
                   <div className="sb-sidenav-collapse-arrow">
                     <i className="fas fa-angle-down" />
                   </div>
@@ -182,10 +182,10 @@ const SideBar = () => {
                 >
                   <nav className="sb-sidenav-menu-nested nav">
                     <Link to={"/admin/list-banner"} className="nav-link">
-                      Danh sách băng rôn
+                      Danh sách Banner
                     </Link>
                     <Link to={"/admin/add-banner"} className="nav-link">
-                      Thêm băng rôn
+                      Thêm Banner
                     </Link>
                   </nav>
                 </div>

@@ -1,23 +1,16 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { getAllBanner, deleteBannerService } from '../../../services/userService';
-import moment from 'moment';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import './AddBanner.scss';
-import { PAGINATION } from '../../../utils/constant';
 import ReactPaginate from 'react-paginate';
-import CommonUtils from '../../../utils/CommonUtils';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect,
-    useParams
+    Link
 } from "react-router-dom";
+import { toast } from 'react-toastify';
 import FormSearch from '../../../component/Search/FormSearch';
+import { deleteBannerService, getAllBanner } from '../../../services/userService';
+import CommonUtils from '../../../utils/CommonUtils';
+import { PAGINATION } from '../../../utils/constant';
+import './AddBanner.scss';
 
 const ManageBanner = () => {
     const [keyword, setkeyword] = useState('')
@@ -56,7 +49,7 @@ const ManageBanner = () => {
             }
         })
         if (response && response.errCode === 0) {
-            toast.success("Xóa băng rôn thành công !")
+            toast.success("Xóa banner thành công !")
             let arrData = await getAllBanner({
 
 
@@ -69,7 +62,7 @@ const ManageBanner = () => {
                 setCount(Math.ceil(arrData.count / PAGINATION.pagerow))
             }
         } else {
-            toast.error("Xóa băng rôn thất bại")
+            toast.error("Xóa banner thất bại")
         }
     }
     let handleChangePage = async (number) => {
@@ -108,25 +101,25 @@ const ManageBanner = () => {
                 element.image = ""
             })
            
-           await CommonUtils.exportExcel(res.data,"Danh sách băng rôn","ListBanner")
+           await CommonUtils.exportExcel(res.data,"Danh sách Banner","ListBanner")
         }
        
     }
     return (
         <div className="container-fluid px-4">
-            <h1 className="mt-4">Quản lý băng rôn</h1>
+            <h1 className="mt-4">Quản lý Banner</h1>
 
 
             <div className="card mb-4">
                 <div className="card-header">
                     <i className="fas fa-table me-1" />
-                    Danh sách băng rôn
+                    Danh sách Banner
                 </div>
                 <div className="card-body">
                 
                     <div className='row'>
                     <div  className='col-4'>
-                    <FormSearch title={"tên băng rôn"} handleOnchange={handleOnchangeSearch} handleSearch={handleSearchBanner} />
+                    <FormSearch title={"Tên Banner"} handleOnchange={handleOnchangeSearch} handleSearch={handleSearchBanner} />
                     </div>
                     <div className='col-8'>
                     <button  style={{float:'right'}} onClick={() => handleOnClickExport()} className="btn btn-success" >Xuất excel <i class="fa-solid fa-file-excel"></i></button>
@@ -137,7 +130,7 @@ const ManageBanner = () => {
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên băng rôn</th>
+                                    <th>Tên Banner</th>
                                     <th>Hình ảnh</th>
                                     <th>Thao tác</th>
                                 </tr>
