@@ -81,14 +81,14 @@ function App() {
           </Route>
           <Route exact path="/payment/vnpay">
             <TopMenu user={JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : ''} />
-              <VnpayPaymentPage />
-              <Footer />
-            </Route>
-            <Route exact path="/payment/vnpay_return">
+            <VnpayPaymentPage />
+            <Footer />
+          </Route>
+          <Route exact path="/payment/vnpay_return">
             <TopMenu user={JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : ''} />
-              <VnpayPaymentSuccess />
-              <Footer />
-            </Route>
+            <VnpayPaymentSuccess />
+            <Footer />
+          </Route>
           <Route path="/login">
             <Header />
             <LoginWebPage />
@@ -114,7 +114,7 @@ function App() {
 
             <Footer />
           </Route>
-          
+
           <Route path="/verify-email">
             <Header />
             <VerifyEmail />
