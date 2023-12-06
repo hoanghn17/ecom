@@ -1,12 +1,10 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { getAllProductAdmin, getDetailReceiptByIdService, createNewReceiptDetailService } from '../../../services/userService';
+import React, { useEffect, useState } from 'react';
+import { createNewReceiptDetailService, getAllProductAdmin, getDetailReceiptByIdService } from '../../../services/userService';
 
+import { useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { Link, useParams } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import CommonUtils from '../../../utils/CommonUtils';
-import moment from 'moment';
 const DetailReceipt = (props) => {
     const { id } = useParams();
     const [dataProduct, setdataProduct] = useState([])
