@@ -1,12 +1,11 @@
-import React from 'react';
-import { useEffect, useState,useRef } from 'react';
-import { Link, NavLink, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getItemCartStart } from '../../action/ShopCartAction'
-import {listRoomOfUser} from '../../services/userService';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import socketIOClient from "socket.io-client";
+import { getItemCartStart } from '../../action/ShopCartAction';
+import { listRoomOfUser } from '../../services/userService';
 import './Header.scss';
 import TopMenu from './TopMenu';
-import socketIOClient from "socket.io-client";
 require('dotenv').config();
 const Header = props => {
     const [quantityMessage, setquantityMessage] = useState('')

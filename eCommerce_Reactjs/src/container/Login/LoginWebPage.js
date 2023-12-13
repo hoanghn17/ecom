@@ -1,14 +1,12 @@
-import React from "react";
-import { useEffect, useState } from 'react';
+import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import React, { useState } from "react";
 import { useHistory } from "react-router";
-import { toast } from 'react-toastify';
-import './LoginWebPage.css';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
-import { handleLoginService, checkPhonenumberEmail, createNewUser } from '../../services/userService';
-import Otp from "./Otp";
+import { toast } from 'react-toastify';
+import { checkPhonenumberEmail, createNewUser, handleLoginService } from '../../services/userService';
 import { authentication } from "../../utils/firebase";
-import { signInWithPopup, FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth'
-import { async } from "@firebase/util";
+import './LoginWebPage.css';
+import Otp from "./Otp";
 const LoginWebPage = () => {
 
     const [inputValues, setInputValues] = useState({
