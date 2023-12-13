@@ -13,7 +13,7 @@ let sendSimpleEmail = async (dataSend) => {
     });
     if (dataSend.type === 'verifyEmail') {
         let info = await transporter.sendMail({
-            from: '"BiNgo2706 👻" <dotanthanhvlog@gmail.com>', // sender address
+            from: '"BiNgo2706 👻" <nghuyhoang177@gmail.com>', // sender address
             to: dataSend.email, // list of receivers
             subject: "Xác thực email | PTITSHOP", // Subject line
             html: getBodyHTMLEmailVerify(dataSend)
@@ -21,7 +21,7 @@ let sendSimpleEmail = async (dataSend) => {
     }
     if (dataSend.type === 'forgotpassword') {
         let info = await transporter.sendMail({
-            from: '"BiNgo2706 👻" <dotanthanhvlog@gmail.com>', // sender address
+            from: '"BiNgo2706 👻" <nghuyhoang177@gmail.com>', // sender address
             to: dataSend.email, // list of receivers
             subject: "Xác nhận quên mật khẩu | PTITSHOP", // Subject line
             html: getBodyHTMLEmailForgotPassword(dataSend)
@@ -54,38 +54,6 @@ let getBodyHTMLEmailForgotPassword = (dataSend) => {
 
     return result;
 }
-// let sendAttachment = async (dataSend) => {
-//     return new Promise(async (resolve, reject) => {
-//         try {
-//             let transporter = nodemailer.createTransport({
-//                 host: "smtp.gmail.com",
-//                 port: 587,
-//                 secure: false, // true for 465, false for other ports
-//                 auth: {
-//                     user: process.env.EMAIL_APP,
-//                     pass: process.env.EMAIL_APP_PASSWORD,
-//                 },
-//             });
-
-//             let info = await transporter.sendMail({
-//                 from: '"BiNgo2706 👻" <dotanthanhvlog@gmail.com>', // sender address
-//                 to: dataSend.email, // list of receivers
-//                 subject: "Thông tin đặt lịch khám bệnh", // Subject line
-//                 html: getBodyHTMLEmailRemedy(dataSend),
-//                 attachments: [
-//                     {
-//                         filename: `remedy-${dataSend.patientId}-${new Date().getTime()}.${dataSend.filename}`,
-//                         content: dataSend.imgBase64.split("base64,")[1],
-//                         encoding: 'base64'
-//                     }
-//                 ]
-//             });
-//             resolve()
-//         } catch (error) {
-//             reject(error)
-//         }
-//     })
-// }
 module.exports = {
     sendSimpleEmail: sendSimpleEmail,
 
